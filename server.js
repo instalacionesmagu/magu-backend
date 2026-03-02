@@ -15,7 +15,8 @@ const supabase = createClient(
 );
 
 // ── Middleware ───────────────────────────────────────────────
-app.use(cors({ origin: process.env.FRONTEND_URL || '*' }));
+app.use(cors({ origin: '*' }));
+app.options('*', cors({ origin: '*' }));
 app.use(express.json({ limit: '50mb' }));
 
 // Multer — memory storage (we upload directly to Supabase Storage)
